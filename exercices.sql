@@ -128,3 +128,12 @@ HAVING COUNT(*) >= 2
 CREATE VIEW admissions_view AS
 SELECT * FROM 	admissions
 WHERE discharge_date IS NULL OR discharge_date > CURRENT_DATE
+
+
+-- bonus 1
+SELECT patients.first_name,doctors.first_name
+FROM prescriptions
+INNER JOIN patients
+ON prescriptions.id_patient=patients.patient_id
+INNER JOIN doctors
+ON doctors.doctor_id=prescriptions.id_doctor;
