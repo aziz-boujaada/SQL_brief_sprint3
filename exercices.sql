@@ -137,3 +137,17 @@ INNER JOIN patients
 ON prescriptions.id_patient=patients.patient_id
 INNER JOIN doctors
 ON doctors.doctor_id=prescriptions.id_doctor;
+-- bonus 2 
+SELECT  appointements.appointement_date AS reserv_date , departements.departement_name AS dep_name
+FROM appointements
+INNER JOIN doctors
+ON doctors.id_departement =doctors.id_departement
+INNER JOIN departements
+ON appointements.appointement_id = appointements.id_doctor
+-- bonus 3
+SELECT medications.medication_name AS medicationName , doctors.first_name AS Dr_name
+FROM prescriptions
+INNER JOIN medications
+ON medications.medication_id = prescriptions.id_medication
+INNER JOIN doctors
+ON doctors.doctor_id = prescriptions.id_doctor
